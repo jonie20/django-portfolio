@@ -6,8 +6,8 @@
 
 
 # class MpesaC2bCredential:
-#     consumer_key = '77bgGpmlOxlgJu6oEXhEgUgnu0j2WYxA'
-#     consumer_secret = 'viM8ejHgtEmtPTHd'
+#     consumer_key = 'MlwADas6j3ZUEcHv9K3plvwRceLoT7ZQ'
+#     consumer_secret = 'PzjdUZpauTmZ0KTm'
 #     api_URL = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
 
 
