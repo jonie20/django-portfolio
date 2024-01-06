@@ -1,0 +1,42 @@
+{% extends 'base.html' %}{% load static %}{% block content %}
+<div class="main-content">
+
+    <article class="login  active" >
+
+        <header>
+          <h2 class="h2 article-title">Login</h2>
+        </header>
+
+        <section class="service">
+
+          <h3 class="h3 service-title">Authorised only</h3>
+
+          <ul class="service-list">
+
+            <li class="service-item">
+
+              <div class="service-content-box ">
+                <form action="{% url 'portfolioapp:login-user' %}" method="POST"  class="form" data-form>
+                    {% csrf_token %}
+
+                    <div class="input-wrapper">
+                      <input type="text" name="username" class="form-input" placeholder="Admin ID" required data-form-input>
+                      <input type="password" name="password" class="form-input" placeholder="Passcode" required data-form-input>
+                    </div>
+        
+                    <button class="form-btn" data-form-btn >
+                      <span>Login</span>
+                    </button>
+        
+                  </form>
+                
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+</div>
+
+{% endblock content %}

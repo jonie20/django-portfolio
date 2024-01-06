@@ -1,0 +1,27 @@
+{% extends 'base.html' %}{% load static %}{% block content %}
+
+<div class="main-content">
+
+    <article class="login  active" >
+
+        <section class="service">
+
+            <h3 class="h3 service-title">Mpesa Integration</h3>
+
+            <form method="POST" action="{% url 'portfolioapp:pay'%}">
+                {% csrf_token %}
+
+                <div class="input-wrapper">
+                    <input type="number" name="phone" class="form-input" placeholder="0712345678" required data-form-input>
+                    <input type="number" name="amount" class="form-input" placeholder="Enter Amount" required data-form-input>
+                  </div>
+
+                  <button class="form-btn" data-form-btn ><span>Pay</span></button>
+            </form>
+
+
+
+        </section>
+</div>
+
+{% endblock %}

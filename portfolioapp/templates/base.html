@@ -1,0 +1,207 @@
+{% load static %}
+{% load humanize %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="I am a Software Engineer" >
+  <meta name="description" content="" >
+  <meta name="keywords" content="Johnstone, Software Engineer, Web Developer," >
+  <meta name="publisher" content="https://johnstone.netlify.app" >
+  <meta name="copyright" content="Copyright (c) Johnstone | software Engineer " >
+  <meta name="author" content="Johnstone Kipkosgei Cheruiyot" >
+  <meta name="contact" content="chjonie20@gmail.com" >
+
+  <meta name="revisit-after" content="7 Days" >
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="subjects" content="Johnstone Kipkosgei Cheruiyot" >
+  <meta name="classification" content="Johnstone" >
+  <meta itemprop="name" content="Johnstone Kipkosgei Cheruiyot" >
+  <meta itemprop="description" content="A Software Engineer, passionate in web development and mobile development" >
+  <meta itemprop="image" content="images/admin.png" >
+
+
+
+  <title>Personal Portfolio</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"> 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+   
+
+    <!--
+      - #MAIN
+    -->
+  
+    <main>
+<!-- Messages -->
+      {% if messages %}
+      {% for message in messages %}
+      {{message}}
+
+      {% endfor %}
+      {% endif %}
+  
+      <!--
+        - #SIDEBAR
+      -->
+  
+      <aside class="sidebar" data-sidebar>
+  
+        <div class="sidebar-info"> 
+  
+          <figure class="avatar-box">
+            <img src="{% static 'images/admin.png' %}" alt="Johnstone Cheruiyot" width="80">
+          </figure>
+  
+          <div class="info-content">
+            <h1 class="name" title="Johnstone">Johnstone K. Cheruiyot</h1>
+  
+            <p class="title">Web Developer || Mobile App Developer</p>
+            <a href="{% url 'portfolioapp:pay' %}" class="title2">Try Mpesa Payment here</a>
+          </div>
+  
+          <button class="info_more-btn" data-sidebar-btn>
+            <span>Show Contacts</span>
+  
+            <ion-icon name="chevron-down"></ion-icon>
+          </button>
+  
+        </div>
+  
+        <div class="sidebar-info_more">
+  
+          <div class="separator"></div>
+  
+          <ul class="contacts-list">
+  
+            <li class="contact-item">
+  
+              <div class="icon-box">
+                <ion-icon name="mail-outline"></ion-icon>
+              </div>
+  
+              <div class="contact-info">
+                <p class="contact-title">Email</p>
+  
+                <a href="mailto:chjonie20@gmail.com" class="contact-link">chjonie20@gmail.com</a>
+              </div>
+  
+            </li>
+  
+            <li class="contact-item">
+  
+              <div class="icon-box">
+                <ion-icon name="phone-portrait-outline"></ion-icon>
+              </div>
+  
+              <div class="contact-info">
+                <p class="contact-title">Phone</p>
+  
+                <a href="tel:+254714378269" class="contact-link">+254 714378269</a>
+              </div>
+  
+            </li>
+  
+            <li class="contact-item">
+  
+              <div class="icon-box">
+                <ion-icon name="calendar-outline"></ion-icon>
+              </div>
+  
+              <div class="contact-info">
+                <p class="contact-title">Birthday</p>
+  
+                <time datetime="2000-07-17">July 17, 2000</time>
+              </div>
+  
+            </li>
+  
+            <li class="contact-item">
+  
+              <div class="icon-box">
+                <ion-icon name="location-outline"></ion-icon>
+              </div>
+  
+              <div class="contact-info">
+                <p class="contact-title">Location</p>
+  
+                <address>Kapsabet, Nairobi, KENYA</address>
+              </div>
+  
+            </li>
+  
+          </ul>
+  
+          <div class="separator"></div>
+  
+          <ul class="social-list">
+  
+            <li class="social-item">
+              <a href="https://www.facebook.com/Jewelwebdevs/" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+  
+            <li class="social-item">
+              <a href="https://www.twitter.com/jewelswebdevs" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+  
+            <li class="social-item">
+              <a href="https://www.instagram.com/jewelswebdevs" class="social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+  
+            <li class="social-item">
+              <a href="https://www.github.com/jewelswebdevs" class="social-link">
+                <ion-icon name="logo-github"></ion-icon>
+              </a>
+            </li>          
+  
+          </ul>
+  
+        </div>
+        <div class="contact-info "><footer>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Johnstone All Rights Reserved</footer></div>
+  
+      </aside>
+  {% block content %} {% endblock content %}
+
+    <!--
+    - custom js link
+  -->
+  <script src="{% static 'js/script.js' %}"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

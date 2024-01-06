@@ -1,0 +1,179 @@
+{% extends 'base.html' %}{% load static %}{% block content %}
+<div class="main-content">
+
+  <nav class="navbar">
+
+    <ul class="navbar-list">
+
+      <!-- <li class="navbar-item">
+        <button class="navbar-link" data-nav-link>Admin</button>
+      </li> -->
+      <li class="navbar-item">
+        <a class="navbar-link" href="{% url 'portfolioapp:logoutuser' %}">
+          Logout
+
+        </a>
+      </li>
+
+
+    </ul>
+
+  </nav>
+
+    <article class="login  active" >
+
+        <header>
+          <h2 class="h2 article-title">Admin</h2>
+        </header>
+
+        <section class="service">
+
+          <h3 class="h3 service-title">Update Resume</h3>
+
+          <ul class="service-list">
+
+            <li class="service-item">
+
+                <div class="service-content-box">
+                    <h4 class="h4 service-item-title">Add Experience</h4>
+    
+                    <form action="/insert-experience" class="form" method="post" data-form>
+                      {% csrf_token %}
+  
+                      <div class="input-wrapper">
+                        <input type="text" name="experience_title" class="form-input" placeholder="Experience Title" required data-form-input>
+                        <input type="text" name="experience_duration" class="form-input" placeholder="Duration(July 2022 - Present)" required data-form-input>
+                      </div>
+                      <textarea name="message" class="form-input" placeholder="Describe experience earned" required data-form-input></textarea>
+          
+                      <button class="form-btn" data-form-btn >
+                        <span>Update</span>
+                      </button>
+          
+                    </form>
+                  </div>
+
+            </li>
+
+            <li class="service-item">
+  
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title">Add Education</h4>
+  
+                  <form action="/insert-education" method="post" class="form" data-form>
+                    {% csrf_token %}
+
+                    <div class="input-wrapper">
+                      <input type="text" name="education_title" class="form-input" placeholder="School" required data-form-input>
+                      <input type="text" name="course" class="form-input" placeholder="Course title" required data-form-input>
+                      <input type="text" name="duration" class="form-input" placeholder="Duration(July 2022 - Present)" required data-form-input>
+                      
+                    </div>
+                    <textarea name="message" class="form-input" placeholder="Describe knowledge earned" required data-form-input></textarea>
+        
+                    <button class="form-btn" data-form-btn >
+                      <span>Update</span>
+                    </button>
+        
+                  </form>
+                </div>
+  
+              </li>
+
+              <li class="service-item">
+  
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title">Add Testimony</h4>
+  
+                  <form action="/insert-testimony" method="post" class="form" enctype="multipart/form-data" data-form>
+                    {% csrf_token %}
+
+                    <div class="input-wrapper">
+                      <input type="text" name="testimonial-name" class="form-input" placeholder="Full Name" required data-form-input>
+                      <input type="file" name="testimonial-image" class="form-input" required data-form-input>
+                    </div>
+                    <textarea name="message" class="form-input" placeholder="Describe message" required data-form-input></textarea>
+        
+                    <button class="form-btn" data-form-btn >
+                      <span>Update</span>
+                    </button>
+        
+                  </form>
+                </div>
+  
+              </li>
+
+              <li class="service-item">
+  
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title">Add Skill</h4>
+  
+                  <form action="/insert-skill" method="post" class="form" data-form>
+                    {% csrf_token %}
+
+                    <div class="input-wrapper">
+                      <input type="text" name="skill-name" class="form-input" placeholder="Skill" required data-form-input>
+                      <input type="number" name="skill-value" class="form-input" placeholder="Skill value" required data-form-input>
+                    </div>
+        
+                    <button class="form-btn" data-form-btn >
+                      <span>Update</span>
+                    </button>
+        
+                  </form>
+                </div>
+  
+              </li>
+
+              <li class="service-item">
+  
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title">Add Project</h4>
+  
+                  <form action="/insert-project" method="post" class="form" enctype="multipart/form-data" data-form>
+                    {% csrf_token %}
+
+                    <div class="input-wrapper">
+                      <input type="text" name="project-name" class="form-input" placeholder="Project Title" required data-form-input>
+                      <input type="text" name="project-category" class="form-input" placeholder="Project Category" required data-form-input>
+                      <input type="url" name="project-url" class="form-input" placeholder="Project Link" required data-form-input>
+                      <input type="file" name="project-image" class="form-input" required data-form-input>
+                    </div>
+        
+                    <button class="form-btn" data-form-btn >
+                      <span>Update</span>
+                    </button>
+        
+                  </form>
+                </div>
+  
+              </li>
+
+              <li class="service-item">
+  
+                <div class="service-content-box">
+                  <h4 class="h4 service-item-title">Add Badge</h4>
+  
+                  <form action="/insert-badge" method="post" class="form" enctype="multipart/form-data" data-form>
+                    {% csrf_token %}
+
+                    <div class="input-wrapper">
+                      <input type="url" name="badge-url" class="form-input" placeholder="Badge Link" required data-form-input>
+                      <input type="file" name="badge-image" class="form-input" required data-form-input>
+                    </div>
+        
+                    <button class="form-btn" data-form-btn >
+                      <span>Update</span>
+                    </button>
+        
+                  </form>
+                </div>
+  
+              </li>
+
+          </ul>
+
+        </section>
+</div>
+
+{% endblock content %}
