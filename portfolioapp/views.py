@@ -4,7 +4,7 @@ from django.conf import settings
 
 import requests
 from requests.auth import HTTPBasicAuth
-# from . credentials import MpesaAccessToken, LipanaMpesaPpassword
+from . credentials import MpesaAccessToken, LipanaMpesaPpassword
 
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
@@ -244,29 +244,29 @@ def contact(request):
 
     return render(request, 'index.html')
 
-# def pay(request):
-#     if request.method =="POST":
-#         phone = request.POST['phone']
-#         amount = request.POST['amount']
-#         access_token = MpesaAccessToken.validated_mpesa_access_token
-#         api_url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
-#         headers = {"Authorization": "Bearer %s" % access_token}
-#         request = {
-#             "BusinessShortCode": LipanaMpesaPpassword.Business_short_code,
-#             "Password": LipanaMpesaPpassword.decode_password,
-#             "Timestamp": LipanaMpesaPpassword.lipa_time,
-#             "TransactionType": "CustomerPayBillOnline",
-#             "Amount": amount,
-#             "PartyA": phone,
-#             "PartyB": LipanaMpesaPpassword.Business_short_code,
-#             "PhoneNumber": phone,
-#             "CallBackURL": "https://sandbox.safaricom.co.ke/mpesa/",
-#             "AccountReference": "Johnstone Kipkosgei Cheruiyot",
-#             "TransactionDesc": "Web development Charges..."
-#         }
+def pay(request):
+    if request.method =="POST":
+        phone = request.POST['phone']
+        amount = request.POST['amount']
+        access_token = MpesaAccessToken.validated_mpesa_access_token
+        api_url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
+        headers = {"Authorization": "Bearer %s" % access_token}
+        request = {
+            "BusinessShortCode": LipanaMpesaPpassword.Business_short_code,
+            "Password": LipanaMpesaPpassword.decode_password,
+            "Timestamp": LipanaMpesaPpassword.lipa_time,
+            "TransactionType": "CustomerPayBillOnline",
+            "Amount": amount,
+            "PartyA": phone,
+            "PartyB": LipanaMpesaPpassword.Business_short_code,
+            "PhoneNumber": phone,
+            "CallBackURL": "https://sandbox.safaricom.co.ke/mpesa/",
+            "AccountReference": "Johnstone Kipkosgei Cheruiyot",
+            "TransactionDesc": "Web development Charges..."
+        }
 
-#     response = requests.post(api_url, json=request, headers=headers)
-#     return HttpResponse("success")
+    response = requests.post(api_url, json=request, headers=headers)
+    return HttpResponse("success")
 
 def stkpush(request):
 
