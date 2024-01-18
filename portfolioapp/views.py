@@ -291,6 +291,4 @@ def stkpush(request):
         }
 
     response = requests.post(api_url, json=request, headers=headers)
-    return HttpResponse("success")
-
-    return render(request, 'pay.html', {})
+    return render(request,'pay.html')
