@@ -7,7 +7,13 @@
         <section class="service">
 
             <h3 class="h3 service-title">Mpesa Integration</h3>
-            <p>Note that transaction made with be reversed back in 24hrs.</p>
+            
+            <div class="alert alert-success" role="alert">
+               <h4 class="alert-heading">Note:</h4>
+               <p>Thanks for visiting, Note that transaction made in this platform will be reversed back within 24 hrs.</p>
+               <hr>
+               <p class="mb-0">Thank you in advance.</p>
+            </div>
 
             <form method="POST" action="{% url 'portfolioapp:pay'%}">
                 {% csrf_token %}
